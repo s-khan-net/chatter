@@ -1,0 +1,30 @@
+{
+  "name": "chatter",
+  "version": "1.0.0",
+  "description": "chat made with node sockets.io redis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s-khan-net/chatter.git"
+  },
+  "keywords": [
+    "sockets",
+    "redis",
+    "chat",
+    "nodejs"
+  ],
+  "author": "Saud Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/s-khan-net/chatter/issues"
+  },
+  "homepage": "https://github.com/s-khan-net/chatter#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0"
+  }
+}

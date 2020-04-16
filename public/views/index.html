@@ -1,0 +1,28 @@
+<html>
+<head>
+    
+</head>
+<body>
+    <h2>chatter</h2>
+
+    <div id='connStatus' style="position: absolute;width: 177px;height: 89px;">
+        connected
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var socketConnection = io();
+        socketConnection.on('connect',function(d){
+            console.log(`connected -> ${d} --> ${socketConnection.id}`);
+        });
+        socketConnection.on('connecting',function(d){
+            console.log(`connecting! -> ${d}`);
+        });
+        socketConnection.on('disconnect',function(d){
+            console.log(`DISCONNECTED! -> ${d}`);
+        });
+        socketConnection.on('reconnecting',function(d){
+            console.log(`Reconnecting  -> ${d}`);
+        });
+    </script>
+</body>
+</html>
