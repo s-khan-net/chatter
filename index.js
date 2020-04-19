@@ -14,12 +14,27 @@ app.use('/css', express.static(__dirname + '/public/css'));
 app.use('/images', express.static(__dirname + '/public/images'));
 
 io.on('connection', function(socket) {
+    let name='';
     console.log('A user connected');
- 
+    
     //Whenever someone disconnects this piece of code executed
     socket.on('disconnect', function () {
        console.log('A user disconnected');
+       io.sockets.emit('onChatStatus',{name:name,status:'left',message:`${name} has left`});
     });
+
+    socket.on('message',function(obj){
+        console.log(obj);
+        io.sockets.emit('onMessage',{name:obj.name,message:obj.message.replace('\n','<br>')})
+    });
+    socket.on('join',function (obj) {
+        name = obj.name;
+        io.sockets.emit('onChatStatus',{name:name,status:'join',message:`${name} has joined`});
+    })
+    socket.on('chatStatus',function(obj) {
+        console.log('[status]',obj);
+        io.sockets.emit('onChatStatus',{message:obj.message});
+    })
  });
 
 //The 404 Route (ALWAYS Keep this as the last route)

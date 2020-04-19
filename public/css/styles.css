@@ -1,0 +1,38 @@
+.chatStatus{
+    position: absolute;
+    width: 141px;
+    height: 32px;
+    z-index: 3;
+    top: 23px;
+    left: 65%;
+    background-color: skyblue;
+    background-blend-mode: soft-light;
+    border-radius: 4px;
+    opacity: .7;
+    letter-spacing: 2px;
+    font-style:normal;
+    font-size: 9px;
+    text-align: center;
+    padding-top: 4px;
+    display: none;
+}
+.constatus{
+    background-color: lightseagreen;
+    opacity: .7;
+}
+.disconstatus{
+    background-color:lightsalmon;
+    opacity: .7;
+}
+#chatterList{
+    list-style: none;
+    padding: 5px;
+   
+}
+#chatterList li{
+    border: 1px solid #CCC;
+    background-color: aliceblue;
+    margin-top:3px   ;
+    padding-left: 5px; 
+    width: 97%;
+}

@@ -1,28 +1,40 @@
 <html>
 <head>
-    
+    <script src="js/jquery/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="js/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap/dist/js/bootstrap-tooltip.js"></script>
+    <script src="js/jquery.slimscroll.min.js"></script>
+    <script>
+       
+    </script>
 </head>
 <body>
     <h2>chatter</h2>
-
-    <div id='connStatus' style="position: absolute;width: 177px;height: 89px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3" style="padding-right:0px">
+                <div id="chatters" style="overflow-y: scroll;border:1px solid #DDD;height:360px">
+                    <ul id="chatterList"></ul>
+                </div>
+            </div>
+            <div class="col-xs-5" style="padding-left:0px">
+                <div id="chatBox" style="overflow-y: scroll;border:1px solid #DDD;height: 300px;">
+                    <div id="chatStatus" class="chatStatus"></div>
+                </div>
+                <div>
+                    <textarea id="txtChatSend" rows="2" cols="60"></textarea>
+                    <div class="btn btn-info" style="vertical-align: top;" id="btnSend">send</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id='conStatus' style="position: absolute;width: 177px;height: 29px;display: none">
         connected
     </div>
     <script src="/socket.io/socket.io.js"></script>
-    <script>
-        var socketConnection = io();
-        socketConnection.on('connect',function(d){
-            console.log(`connected -> ${d} --> ${socketConnection.id}`);
-        });
-        socketConnection.on('connecting',function(d){
-            console.log(`connecting! -> ${d}`);
-        });
-        socketConnection.on('disconnect',function(d){
-            console.log(`DISCONNECTED! -> ${d}`);
-        });
-        socketConnection.on('reconnecting',function(d){
-            console.log(`Reconnecting  -> ${d}`);
-        });
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
